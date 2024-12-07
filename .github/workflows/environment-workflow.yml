@@ -66,3 +66,19 @@ jobs:
 #             kubernetes/deployment.yaml
 #             kubernetes/service.yaml
 #           namespace: 'my-app'
+
+## secrets example
+# name: My Workflow
+# on:
+#   push:
+# jobs:
+#   my_job:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Some step
+#         with: # Secret set as an input
+#           my_secret: ${{secrets.MY_SECRET}}
+#       - name: Use my API key
+#         env: # Secret set as an environment variable
+#           API_KEY: ${{ secrets.API_KEY }}
+#         run: docker build --build-arg=BLOG_API_KEY=${API_KEY} backend-image .
